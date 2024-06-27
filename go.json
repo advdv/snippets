@@ -1,0 +1,22 @@
+{
+	"Desc": {
+		"prefix": "describe",
+		"body": "Describe(\"$1\", func() {\n    $0\n})",
+		"description": "Ginkgo Describe",
+	},
+	"BeforeEachFx": {
+		"prefix": "before",
+		"body": "BeforeEach(func(ctx context.Context) {\n\tapp := fx.New($0)\n\tExpect(app.Start(ctx)).To(Succeed())\n\tDeferCleanup(app.Stop)\n})",
+		"description": "Ginkgo BeforeEach (ctx, fx)",
+	},
+	"It": {
+		"prefix": "it",
+		"body": "It(\"$1\", func(ctx context.Context) {$0})",
+		"description": "Ginkgo It",
+	},
+	"ReturnWrappedError": {
+		"prefix": "return",
+		"body": "return fmt.Errorf(\"$0: %w\", err)",
+		"description": "Return wrapped error",
+	}
+}
